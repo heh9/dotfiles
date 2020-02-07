@@ -1,0 +1,45 @@
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+[difftool]
+  prompt = true
+[diff]
+  tool = vimdiff
+  algorithm = patience
+[difftool "vimdiff"]
+  cmd = "vim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[color]
+  ui = auto
+  interactive = auto
+[push]
+  default = current
+[alias]
+  co = checkout
+  cm = commit
+  st = status -sb
+  br = branch
+  undo = reset --hard HEAD
+  amend = commit --amend -a
+  graph = log --graph
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
+  sweep = !git fsck && git gc && git remote update --prune && git stash clear
+  update = !git checkout master && git checkout - && git merge master
+  recent = !git branch --sort=-committerdate | head
+  pr = pull --rebase
+[log]
+  abbrevCommit = true
+  decorate = true
+[format]
+  pretty = %C(yellow)%h%C(white)%d%Creset %s %C(cyan)(%cr) %C(bold blue)<%an>%Creset
+[help]
+  autocorrect = 1
+[user]
+  name = Vladimir Iacob
+  email = vladimiriacobm@gmail.com
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f

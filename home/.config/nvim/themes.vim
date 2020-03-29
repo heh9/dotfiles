@@ -11,3 +11,4 @@ hi GitGutterChangeDelete guibg=#272727
 hi SignColumn guibg=#272727
 hi ALEErrorSign guibg=#272727 guifg=#c96663
 hi ALEWarningSign guibg=#272727 guifg=#f4b26d
+hi Comment cterm=italic gui=italic

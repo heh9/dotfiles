@@ -1,13 +1,14 @@
 {
-    "languageserver": {
-        "golang": {
-            "command": "/Users/heh9/go/bin/gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["go"]
-        }
-    },
-    "yaml.validate": false,
-    "yaml.schemas": {
-        "http://json.schemastore.org/ansible-stable-2.7": "/*.yml"
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
     }
+  },
+
+  "tsserver.enable": true,
+  "tsserver.log": "verbose",
+
+  "yaml.validate": true
 }

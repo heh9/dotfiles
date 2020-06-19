@@ -90,9 +90,9 @@ shopt -s cdspell 2> /dev/null
 
 # Load prompt {
 
+. /usr/local/etc/profile.d/bash_completion.sh
 . ~/.prompt.bash
 . ~/.fzf.bash
-. /usr/local/etc/profile.d/bash_completion.sh
 
 # }
 
@@ -131,7 +131,6 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_DEFAULT_OPTS='--color=bg+:#272727'
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/go/bin:/Users/heh9/Library/Python/3.7/bin/"
 export PATH="$PATH:/Applications/VMware OVF Tool"

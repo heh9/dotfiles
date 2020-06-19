@@ -1,4 +1,4 @@
-call plug#begin('~/.nvim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " Functional plugins
 Plug 'morhetz/gruvbox'
@@ -13,22 +13,16 @@ Plug 'tomtom/tcomment_vim'
 Plug 'wellle/targets.vim'
 Plug 'vim-airline/vim-airline'
 
-" Linting
-Plug 'w0rp/ale'
-
-" Syntax plugins
+" Syntax extensions
 Plug 'hashivim/vim-terraform'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'herringtondarkholme/yats.vim'
 
 " Language server extensions
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'posva/vim-vue'
-" Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile && yarn build'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile && yarn build'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile && yarn build'}
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile && yarn build'}
 
 call plug#end()

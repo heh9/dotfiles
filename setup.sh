@@ -63,7 +63,7 @@ ports=$(cat <<EOL
     grep
     gsed
     hugo
-    kubectl-1.17
+    kubectl-1.15
     neovim
     npm6
     py36-virtualenv
@@ -71,7 +71,20 @@ ports=$(cat <<EOL
     wget
     xhyve
     yarn
-    zsh
+    tmux
+    hyperfine
+    py-awscli
+    git-secret
+    htop
+    httpie
+    hyperfine
+    jq
+    md5sha1sum
+    nmap
+    ranger
+    inetutils
+    watch
+    yq
 EOL
 )
 
@@ -80,7 +93,7 @@ for p in $ports; do
     helper_ask_yn "Do you want to install $p ?" "any_macports"
     if test $? -eq 0; then
         log_success "Installing $p"
-        # port install $p
+        port -N install $p
     else
         log_fail "Skipping $p"
     fi

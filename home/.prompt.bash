@@ -42,7 +42,7 @@ fi
 
 # Set the dollar color. Defaults to white. It can be overwritten by
 # `PROMPT_DOLLAR_COLOR`.
-PROMPT_DOLLAR_COLOR="38;5;142"
+PROMPT_DOLLAR_COLOR="38;5;152"
 __prompt_dollar_color="${__prompt_color_prefix}${__prompt_256_prefix}255${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_DOLLAR_COLOR ]]; then
   __prompt_dollar_color="${__prompt_color_prefix}${PROMPT_DOLLAR_COLOR}${__prompt_color_suffix}"

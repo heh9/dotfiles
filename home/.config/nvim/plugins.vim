@@ -1,8 +1,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " Functional plugins
-Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
 Plug '/opt/local/share/fzf/vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -25,5 +24,6 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile && yarn bui
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile && yarn build'}
+Plug 'fatih/vim-go'
 
 call plug#end()

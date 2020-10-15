@@ -1,5 +1,4 @@
 set termguicolors
-set background=dark
 set backspace=indent,eol,start
 set synmaxcol=800
 set nocursorline
@@ -23,7 +22,7 @@ set smarttab
 set autoindent
 set incsearch
 set hlsearch
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set listchars=tab:\ \ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set ignorecase
 set smartcase
 set list
@@ -38,3 +37,16 @@ set noswapfile
 set noshowmode
 set splitbelow
 set splitright
+
+" Plugins settings
+let g:terraform_fmt_on_save=1
+
+let g:tmux_navigator_no_mappings=1
+
+let g:go_gopls_enabled=0
+let g:go_highlight_types=1
+let g:go_highlight_fields=1
+let g:go_highlight_functions=1
+let g:go_highlight_function_calls=1
+let g:go_highlight_operators=1
+let g:go_highlight_extra_types=1

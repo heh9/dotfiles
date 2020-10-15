@@ -27,3 +27,8 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 command W w !sudo tee "%" > /dev/null
+
+augroup nord-theme-overrides
+  autocmd!
+  autocmd ColorScheme nord highlight vimCommentTitle ctermfg=14 guifg=#8FBCBB
+augroup END

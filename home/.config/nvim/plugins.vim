@@ -24,6 +24,6 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile && yarn bui
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile && yarn build'}
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()

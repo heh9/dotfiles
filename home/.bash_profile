@@ -21,6 +21,10 @@ if command -v kubectl &>/dev/null; then
   eval "$(kubectl completion bash)"
 fi
 
+if [ -f $HOME/.dir_colors ]; then
+    eval $(gdircolors $HOME/.dir_colors)
+fi
+
 # }
 
 # Functions {

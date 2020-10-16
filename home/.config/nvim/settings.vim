@@ -38,12 +38,25 @@ set noshowmode
 set splitbelow
 set splitright
 
-" Plugins settings
+" Terraform settings
 let g:terraform_fmt_on_save=1
 
+" Tmux stuff
 let g:tmux_navigator_no_mappings=1
 
+" Go stuff
+let g:go_def_mode='godef'
+let g:go_info_mode='guru'
+let g:go_implements_mode='guru'
+let g:go_referrers_mode='guru'
+let g:go_fmt_command="goimports"
+
 let g:go_gopls_enabled=0
+let g:go_fmt_fail_silently=1
+let g:go_auto_type_info=1
+
+let g:go_decls_includes="func,type"
+
 let g:go_highlight_types=1
 let g:go_highlight_fields=1
 let g:go_highlight_functions=1

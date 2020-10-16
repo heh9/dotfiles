@@ -64,3 +64,12 @@ let g:go_highlight_function_calls=1
 let g:go_highlight_operators=1
 let g:go_highlight_extra_types=1
 let g:go_highlight_build_constraints=1
+
+" fzf settings
+let g:fzf_layout={ 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Comment' } }
+let g:fzf_tags_command='uctags
+\ --recurse=yes --sort=yes
+\ --exclude=.git
+\ --exclude=node_modules
+\ --exclude=lib
+\ --exclude=package-lock.json'

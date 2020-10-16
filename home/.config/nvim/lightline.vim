@@ -12,7 +12,7 @@ let g:lightline = {
     \ },
     \ 'component_function': {
     \   'readonly': 'LightlineReadonly',
-    \   'gitbranch': 'gitbranch#name'
+    \   'gitbranch': 'LightlineFugitive'
     \ },
     \ 'component_expand': {
     \   'buffers': 'lightline#bufferline#buffers',
@@ -46,4 +46,9 @@ endfunction
 
 function! LightlineReadonly()
     return &readonly ? '' : ''
+endfunction
+
+function! LightlineFugitive()
+    let branch = gitbranch#name()
+    return 'שׂ '.branch
 endfunction

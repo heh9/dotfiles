@@ -1,4 +1,15 @@
 {
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {}
+    }
+  },
+
   "tsserver.enable": true,
   "tsserver.log": "verbose",
 

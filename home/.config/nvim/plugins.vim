@@ -16,7 +16,6 @@ Plug 'mengelbrecht/lightline-bufferline'
 
 " Syntax extensions
 Plug 'hashivim/vim-terraform'
-Plug 'juliosueiras/vim-terraform-completion'
 Plug 'herringtondarkholme/yats.vim'
 
 " Language server extensions

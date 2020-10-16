@@ -85,6 +85,7 @@ ports=$(cat <<EOL
     inetutils
     watch
     yq
+    universal-ctags
 EOL
 )
 

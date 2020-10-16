@@ -32,3 +32,10 @@ augroup nord-theme-overrides
   autocmd!
   autocmd ColorScheme nord highlight vimCommentTitle ctermfg=14 guifg=#8FBCBB
 augroup END
+
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+augroup lightline-coc
+  autocmd!
+  autocmd User CocDiagnosticChange call lightline#update()
+  autocmd User CocStatusChange call lightline#update()
+augroup END

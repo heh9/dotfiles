@@ -4,7 +4,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug '/opt/local/share/fzf/vim'
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'itchyny/vim-gitbranch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'

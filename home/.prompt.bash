@@ -137,7 +137,7 @@ function __prompt_command() {
   local host="${__prompt_userhost_color}${__prompt_retval}"
   __prompt_get_git_stuff
   local git_stuff="${__prompt_git_color}${__prompt_retval}"
-  local dollar="${dollar_color} "
+  local dollar="${dollar_color}$"
 
   # Set the PS1 to the new prompt.
   PS1="${short_pwd}${git_stuff} ${host} ${dollar}${__prompt_no_color} "

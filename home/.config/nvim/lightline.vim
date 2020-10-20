@@ -50,5 +50,5 @@ endfunction
 
 function! LightlineFugitive()
     let branch = gitbranch#name()
-    return 'שׂ '.branch
+    return ' '.branch
 endfunction

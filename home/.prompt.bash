@@ -42,7 +42,7 @@ fi
 
 # Set the dollar color. Defaults to white. It can be overwritten by
 # `PROMPT_DOLLAR_COLOR`.
-PROMPT_DOLLAR_COLOR="38;5;152"
+PROMPT_DOLLAR_COLOR="38;5;142"
 __prompt_dollar_color="${__prompt_color_prefix}${__prompt_256_prefix}255${__prompt_color_suffix}"
 if ! [[ -z $PROMPT_DOLLAR_COLOR ]]; then
   __prompt_dollar_color="${__prompt_color_prefix}${PROMPT_DOLLAR_COLOR}${__prompt_color_suffix}"
@@ -137,7 +137,7 @@ function __prompt_command() {
   local host="${__prompt_userhost_color}${__prompt_retval}"
   __prompt_get_git_stuff
   local git_stuff="${__prompt_git_color}${__prompt_retval}"
-  local dollar="${dollar_color}$"
+  local dollar="${dollar_color} "
 
   # Set the PS1 to the new prompt.
   PS1="${short_pwd}${git_stuff} ${host} ${dollar}${__prompt_no_color} "

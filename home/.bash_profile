@@ -21,10 +21,6 @@ if command -v kubectl &>/dev/null; then
   eval "$(kubectl completion bash)"
 fi
 
-if [ -f $HOME/.dir_colors ]; then
-    eval $(gdircolors $HOME/.dir_colors)
-fi
-
 # }
 
 # Functions {
@@ -64,7 +60,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS='--layout=reverse --color=bg+:#2e3440'
+export FZF_DEFAULT_OPTS='--layout=reverse --color=bg+:#272727'
 export PATH="/opt/local/bin:$PATH"
 
 # }

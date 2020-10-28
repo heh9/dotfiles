@@ -99,7 +99,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Hack
+    family: Hack Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -163,44 +163,34 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Nord)
+# Colors (Seoul256)
 colors:
   # Default colors
   primary:
-    background: '#2e3440'
-    foreground: '#d8dee9'
-    dim_foreground: '#a5abb6'
+    background: '#272727'
+    foreground: '#d0d0d0'
 
   # Normal colors
   normal:
-    black: '#3b4252'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#88c0d0'
-    white: '#e5e9f0'
+    black:   '#4e4e4e'
+    red:     '#d68787'
+    green:   '#5f865f'
+    yellow:  '#d8af5f'
+    blue:    '#85add4'
+    magenta: '#d7afaf'
+    cyan:    '#87afaf'
+    white:   '#d0d0d0'
+
   # Bright colors
   bright:
-    black: '#4c566a'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#8fbcbb'
-    white: '#eceff4'
-  # Dim colors
-  dim:
-    black: '#373e4d'
-    red: '#94545d'
-    green: '#809575'
-    yellow: '#b29e75'
-    blue: '#68809a'
-    magenta: '#8c738c'
-    cyan: '#6d96a5'
-    white: '#aeb3bb'
+    black:   '#626262'
+    red:     '#d75f87'
+    green:   '#87af87'
+    yellow:  '#ffd787'
+    blue:    '#add4fb'
+    magenta: '#ffafaf'
+    cyan:    '#87d7d7'
+    white:   '#e4e4e4'
 
   # Cursor colors
   #
@@ -208,9 +198,9 @@ colors:
   #
   # Allowed values are CellForeground and CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
+  #cursor:
+  #  text: CellBackground
+  #  cursor: CellForeground
 
   # Vi mode cursor colors
   #
@@ -218,9 +208,9 @@ colors:
   #
   # Allowed values are CellForeground and CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  vi_mode_cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
+  #vi_mode_cursor:
+  #  text: CellBackground
+  #  cursor: CellForeground
 
   # Selection colors
   #
@@ -228,25 +218,24 @@ colors:
   #
   # Allowed values are CellForeground and CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  selection:
-    text: CellForeground
-    background: '#4c566a'
+  #selection:
+  #  text: CellBackground
+  #  background: CellForeground
 
   # Search colors
   #
   # Colors used for the search bar and match highlighting.
-  search:
+  #search:
     # Allowed values are CellForeground and CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    matches:
-      foreground: CellBackground
-      background: '#88c0d0'
+    #matches:
+    #  foreground: '#000000'
+    #  background: '#ffffff'
 
-    bar:
-      background: '#434c5e'
-      foreground: '#d8dee9'
+    #bar:
+    #  background: '#c5c8c6'
+    #  foreground: '#1d1f21'  # Indexed Colors
 
-  # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
   # When these are not set, they're filled with sensible defaults.

@@ -2,7 +2,7 @@ set laststatus=2
 set noshowmode
 
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'seoul256',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ], [  'gitbranch', 'readonly', 'buffers' ] ],
     \   'right': [ [ 'lineinfo' ], [ 'coc_errors', 'coc_warnings' ], [ 'fileformat', 'filetype' ] ]

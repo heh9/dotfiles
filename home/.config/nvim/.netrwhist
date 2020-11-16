@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/heh9/git/rollotf/executor'
+let g:netrw_dirhist_4='/Users/heh9/go/pkg/mod/github.com/golang/glog@v0.0.0-20160126235308-23def4e6c14b'
+let g:netrw_dirhist_3='/Users/heh9/git/rollotf/config'
+let g:netrw_dirhist_2='/Users/heh9/.tmux'
 let g:netrw_dirhist_1='/Users/heh9/git/perfy/infra/prometheus'
 let g:netrw_dirhist_0='/Users/heh9/git/perfy/cmd/server'
 let g:netrw_dirhist_9='/Users/heh9/git/perfy/example-app/node_modules'
 let g:netrw_dirhist_8='/Users/heh9/git/perfy/infra/prometheus'
 let g:netrw_dirhist_7='/Users/heh9/git/perfy/example-app/node_modules'
 let g:netrw_dirhist_6='/Users/heh9/git/vim-go-syntax/ftdetect'
-let g:netrw_dirhist_5='/Users/heh9/.tmux'
-let g:netrw_dirhist_4='/Users/heh9/git/mono/ejobs-ag/auth'
-let g:netrw_dirhist_3='/Users/heh9/git/mono/proto/protobuf/common'
-let g:netrw_dirhist_2='/Users/heh9/git/proto-compiler'

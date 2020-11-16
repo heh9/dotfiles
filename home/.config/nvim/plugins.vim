@@ -3,7 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Functional plugins
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
-Plug '/opt/local/share/fzf/vim'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'tpope/vim-repeat'

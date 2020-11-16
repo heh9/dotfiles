@@ -13,9 +13,13 @@ set -o vi
 
 # Load completion {
 
-. /opt/local/etc/bash_completion
-. /opt/local/share/fzf/shell/key-bindings.bash
-. /opt/local/share/bash-completion/completions/fzf
+. /usr/local/etc/bash_completion.d/fd.bash
+. /usr/local/etc/profile.d/bash_completion.sh
+. /usr/local/opt/fzf/shell/key-bindings.bash
+. /usr/local/opt/fzf/shell/completion.bash
+. /usr/local/etc/bash_completion.d/git-completion.bash
+. /usr/local/etc/bash_completion.d/hugo.sh
+. /usr/local/etc/bash_completion.d/hyperfine.bash
 
 if command -v kubectl &>/dev/null; then
   eval "$(kubectl completion bash)"
@@ -61,6 +65,10 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='--layout=reverse --color=bg+:#272727'
-export PATH="/opt/local/bin:$PATH"
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+export PATH="/Users/heh9/.cargo/bin:$PATH"
+export GOROOT="/usr/local/opt/go/libexec"
 
 # }

@@ -48,7 +48,7 @@ if test $? -eq 0; then
     # ln -sf "$PWD/home/.config/nvim" "$HOME/.config/nvim"
 fi
 
-echo "Installing macports 📦"
+echo "Installing packages 📦"
 
 ports=$(cat <<EOL
     bash
@@ -63,29 +63,23 @@ ports=$(cat <<EOL
     grep
     gsed
     hugo
-    kubectl-1.15
+    kubectl
     neovim
-    npm6
-    py36-virtualenv
-    python36
     wget
     xhyve
     yarn
     tmux
     hyperfine
-    py-awscli
     git-secret
     htop
     httpie
-    hyperfine
     jq
-    md5sha1sum
     nmap
     ranger
     inetutils
     watch
     yq
-    universal-ctags
+    --HEAD universal-ctags/universal-ctags/universal-ctags
 EOL
 )
 
@@ -94,7 +88,7 @@ for p in $ports; do
     helper_ask_yn "Do you want to install $p ?" "any_macports"
     if test $? -eq 0; then
         log_success "Installing $p"
-        port -N install $p
+        brew install $p
     else
         log_fail "Skipping $p"
     fi

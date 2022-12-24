@@ -1,17 +1,18 @@
 {
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
-      "initializationOptions": {}
-    }
-  },
-
+  "languageserver": {},
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "javascript",
+    "typescript",
+    "css",
+    "markdown",
+    "html",
+    "svelte"
+  ],
+  "inlayHint.enable": false,
+  "rust-analyzer.enable": true,
   "tsserver.enable": true,
-  "tsserver.log": "verbose",
+  "yaml.validate": true,
 
-  "yaml.validate": true
+  "svelte.enable-ts-plugin": true
 }

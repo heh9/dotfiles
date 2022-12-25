@@ -31,7 +31,7 @@ require('packer').startup(function(use)
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'onsails/lspkind.nvim' },
   }
 
   use { -- Highlight, edit, and navigate code
@@ -55,6 +55,7 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use '~/.config/nvim/plugin/lastplace.lua' -- Saves position of the cursor between instances
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -162,6 +163,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- Strips every line from spaces on :w
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  pattern = { '*' },
+  command = [[%s/\s\+$//e]],
+})
+
 -- Set lualine as statusline
 -- See `:help lualine.txt`
 require('lualine').setup {
@@ -177,6 +184,10 @@ require('lualine').setup {
         'buffers',
         show_filename_only = true,   -- Shows shortened relative path when set to false.
         max_length = vim.o.columns * 2 / 3,
+
+        buffers_color = {
+          active = { bg = '#393f4a', fg = '#98c379' },
+        },
 
         symbols = {
           modified = ' ~',
@@ -419,7 +430,7 @@ mason_lspconfig.setup_handlers {
 -- Change diagnostics to now show up in the sidebar
 vim.diagnostic.config {
   virtual_text = false,
-  signs = false,
+  signs = true,
 }
 
 -- Turn on lsp status information
@@ -428,8 +439,13 @@ require('fidget').setup()
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 
 cmp.setup {
+  -- Makes the menu appear top/bottom depending on where the cursor is
+  view = {
+    entries = { name = 'custom', selection_order = 'near_cursor' }
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -461,6 +477,18 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 's' }),
+  },
+  -- Adds icons on the left and the type (module, text, func, class) on the right side of the suggestion
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. strings[1] .. " "
+      kind.menu = "    (" .. strings[2] .. ")"
+
+      return kind
+    end,
   },
   sources = {
     { name = 'nvim_lsp' },

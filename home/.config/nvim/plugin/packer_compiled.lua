@@ -104,6 +104,16 @@ _G.packer_plugins = {
     path = "/Users/vladimir.iacob/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["lastplace.lua"] = {
+    loaded = true,
+    path = "/Users/vladimir.iacob/.local/share/nvim/site/pack/packer/start/lastplace.lua",
+    url = "https://github.com//Users/vladimir.iacob/.config/nvim/plugin/lastplace.lua"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/Users/vladimir.iacob/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/vladimir.iacob/.local/share/nvim/site/pack/packer/start/lualine.nvim",

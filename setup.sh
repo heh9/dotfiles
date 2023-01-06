@@ -26,20 +26,6 @@ function helper_ask_yn {
     done
 }
 
-echo "Installing dotfiles 🔧"
-
-any_dotfiles="false"
-for p in $(find $PWD/home -maxdepth 1 -type f); do
-    f=$(basename "$p")
-    helper_ask_yn "Do you want to link $p -> $HOME/$f ?" "any_dotfiles"
-    if test $? -eq 0; then
-        log_success "Linking $p -> $HOME/$f"
-        ln -sf "$p" "$HOME/$f"
-    else
-        log_fail "Skipping $p"
-    fi
-done
-
 echo "Configuring neovim ✏️"
 
 helper_ask_yn "Do you want to configure neovim in $HOME/.config/nvim ?" "dummy"
@@ -59,27 +45,13 @@ ports=$(cat <<EOL
     fzf
     gawk
     git
-    go
     grep
     gsed
-    hugo
-    kubectl
-    neovim
     wget
-    xhyve
-    yarn
-    tmux
-    hyperfine
-    git-secret
     htop
-    httpie
     jq
-    nmap
-    ranger
     inetutils
     watch
-    yq
-    --HEAD universal-ctags/universal-ctags/universal-ctags
 EOL
 )
 

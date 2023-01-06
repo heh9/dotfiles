@@ -51,7 +51,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'Mofiqul/vscode.nvim' -- Theme inspired by vscode
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
@@ -125,10 +125,9 @@ vim.o.updatetime = 250
 
 -- Set colorscheme
 vim.o.termguicolors = true
-require('onedark').setup {
-    term_colors = true, -- Change terminal color as per the selected theme style
+require('vscode').setup {
+    italic_comments = true,
 }
-require('onedark').load()
 
 -- Make yank able to copy or paste from system clipboard
 vim.o.clipboard = 'unnamedplus'
@@ -174,7 +173,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'onedark',
+    theme = 'vscode',
     component_separators = '|',
     section_separators = '',
   },
@@ -184,10 +183,6 @@ require('lualine').setup {
         'buffers',
         show_filename_only = true,   -- Shows shortened relative path when set to false.
         max_length = vim.o.columns * 2 / 3,
-
-        buffers_color = {
-          active = { bg = '#393f4a', fg = '#98c379' },
-        },
 
         symbols = {
           modified = ' ~',

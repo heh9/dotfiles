@@ -24,10 +24,6 @@ symbol = " "
 disabled = true
 symbol = " "
 
-[docker]
-disabled = true
-symbol = " "
-
 [elixir]
 disabled = true
 symbol = " "
@@ -102,4 +98,7 @@ disabled = true
 symbol = "ﯣ "
 
 [terraform]
+disabled = true
+
+[lua]
 disabled = true

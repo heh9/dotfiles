@@ -122,11 +122,15 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
+vim.wo.signcolumn = 'yes'
+
+-- Don't show mode, we have lualine for that
+vim.opt.showmode = false
 
 -- Set colorscheme
 vim.o.termguicolors = true
 require('vscode').setup {
-    italic_comments = true,
+  italic_comments = true,
 }
 
 -- Make yank able to copy or paste from system clipboard
@@ -202,12 +206,16 @@ require('Comment').setup()
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
   signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
+    add          = { text = '│' },
+    change       = { text = '│' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
     changedelete = { text = '~' },
   },
+  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
 }
 
 -- [[ Configure Telescope ]]
@@ -251,7 +259,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'html'},
 
   highlight = { enable = true },
   incremental_selection = {

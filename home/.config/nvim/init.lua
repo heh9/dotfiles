@@ -53,6 +53,7 @@ require('packer').startup(function(use)
 
   use 'Mofiqul/vscode.nvim' -- Theme inspired by vscode
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
   use '~/.config/nvim/plugin/lastplace.lua' -- Saves position of the cursor between instances
@@ -90,7 +91,7 @@ end
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
+  command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
   group = packer_group,
   pattern = vim.fn.expand '$MYVIMRC',
 })
@@ -104,6 +105,8 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'auto'
+vim.opt.numberwidth = 3
+vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
 
 -- Display invisible characters
 vim.o.list = true
@@ -112,6 +115,9 @@ vim.opt.listchars = {eol = '¬', trail = '⋅', extends = '»', precedes = '«',
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+
+-- Enable break indent
+vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -182,6 +188,15 @@ require('lualine').setup {
     section_separators = '',
   },
   sections = {
+    lualine_b = {
+      'branch', 'diff',
+      {
+        'diagnostics',
+        sections = { 'error', 'warn', 'info', 'hint' },
+        symbols = { error = '🞆', warn = '🞆', info = '🞆', hint = '' },
+        colored = true, -- Displays diagnostics status in color if set to true.
+      }
+    },
     lualine_c = {
       {
         'buffers',
@@ -202,6 +217,13 @@ require('lualine').setup {
 -- Enable Comment.nvim
 require('Comment').setup()
 
+-- Enable `lukas-reineke/indent-blankline.nvim`
+-- See `:help indent_blankline.txt`
+require('indent_blankline').setup {
+  char = '┊',
+  show_trailing_blankline_indent = false,
+}
+
 -- Gitsigns
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
@@ -212,18 +234,17 @@ require('gitsigns').setup {
     topdelete    = { text = '‾' },
     changedelete = { text = '~' },
   },
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
 }
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+local actions = require 'telescope.actions'
+
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
+        ['<esc>']   = actions.close,
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
@@ -259,9 +280,10 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'html'},
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'html' },
 
   highlight = { enable = true },
+  indent = { enable = true, disable = { 'python' } },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -389,10 +411,10 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
+  pyright = {},
+  rust_analyzer = {},
   tsserver = {},
 
   sumneko_lua = {
@@ -435,6 +457,10 @@ vim.diagnostic.config {
   virtual_text = false,
   signs = true,
 }
+vim.fn.sign_define('DiagnosticSignError', { text = '🞆', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '△', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = '🞆', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignInfo' })
 
 -- Turn on lsp status information
 require('fidget').setup()
